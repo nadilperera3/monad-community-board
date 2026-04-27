@@ -1,14 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
   base: "/",
-  plugins: [
-    react(),
-    tailwindcss()
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
@@ -16,17 +12,8 @@ export default defineConfig({
     },
     dedupe: ["react", "react-dom"]
   },
-  root: path.resolve(import.meta.dirname),
   build: {
     outDir: "dist",
     emptyOutDir: true
-  },
-  server: {
-    host: "0.0.0.0",
-    allowedHosts: true
-  },
-  preview: {
-    host: "0.0.0.0",
-    allowedHosts: true
   }
 });
